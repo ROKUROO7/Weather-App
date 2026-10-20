@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Weather app</title>
+
+  
+  <link rel="stylesheet" href="./src/style.css">
+  <script defer src="./src/script.js"></script>
+    
+  </style>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 0.6875rem; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <header class="[ c-flex-row c-justify-con-sb c-align-items-center ][ u-width-2 u-mg-block-1 ]">
+    <a class="[ u-focus-outline u-cursor-pointer ]" href="/" aria-label="Weather Now">
+      <svg class="[ b-logo-img ]" role="img" aria-label="company logo" xmlns="http://www.w3.org/2000/svg" width="197" height="40" fill="none" viewBox="0 0 197 40"><g clip-path="url(#a)"><path fill="#FF820A" d="M25.093 1.054 21.16 0l-3.315 12.37-2.992-11.168-3.933 1.054 3.233 12.066L6.1 6.269l-2.88 2.88 8.834 8.832-11-2.947L0 18.967l12.019 3.22a8.144 8.144 0 1 1 15.869-.011l10.922 2.926 1.054-3.933-12.066-3.233 11-2.947-1.054-3.934-12.066 3.234 8.053-8.053-2.88-2.88-8.71 8.711 2.952-11.013Z"/><path fill="#FF820A" d="M27.877 22.221a8.127 8.127 0 0 1-2.026 3.733l7.913 7.913 2.88-2.88-8.767-8.766ZM25.771 26.037a8.137 8.137 0 0 1-3.639 2.151l2.88 10.746 3.933-1.054-3.174-11.843ZM21.985 28.227a8.157 8.157 0 0 1-2.033.256c-.753 0-1.481-.102-2.173-.293l-2.881 10.756L18.83 40l3.154-11.773ZM17.64 28.15a8.142 8.142 0 0 1-3.574-2.183L6.133 33.9l2.88 2.88 8.628-8.63ZM14 25.897a8.125 8.125 0 0 1-1.976-3.686L1.066 25.147 2.12 29.08 14 25.897Z"/><path class="[ u-clr-1 ]" fill="#fff" d="M53.648 27 50.37 12.48h3.454l2.156 11.814h.242l2.552-11.814H62.8l2.552 11.814h.264l2.156-11.814h3.278L67.728 27h-4.422l-2.464-11.814h-.198L58.18 27h-4.532Zm24.198.308c-.953 0-1.804-.132-2.552-.396a5.14 5.14 0 0 1-1.87-1.144 5.018 5.018 0 0 1-1.188-1.848c-.264-.733-.396-1.562-.396-2.486 0-.91.125-1.745.374-2.508a5.719 5.719 0 0 1 1.144-2.002 5 5 0 0 1 1.826-1.32c.719-.308 1.533-.462 2.442-.462.88 0 1.665.147 2.354.44.69.279 1.262.704 1.716 1.276.47.572.807 1.276 1.012 2.112.22.821.301 1.767.242 2.838l-9.064.088v-1.738l7.238-.066-1.122.88c.103-.777.052-1.415-.154-1.914-.205-.499-.506-.865-.902-1.1a2.386 2.386 0 0 0-1.276-.352c-.557 0-1.048.147-1.474.44-.425.293-.755.726-.99 1.298-.234.557-.352 1.232-.352 2.024 0 1.247.272 2.163.814 2.75.558.587 1.284.88 2.178.88.411 0 .756-.051 1.034-.154.294-.117.528-.264.704-.44.191-.176.338-.374.44-.594.118-.22.213-.44.286-.66l2.75.594a5.262 5.262 0 0 1-.594 1.474c-.249.425-.586.8-1.012 1.122-.425.308-.938.543-1.54.704-.586.176-1.276.264-2.068.264Zm10.143 0c-.645 0-1.217-.125-1.716-.374a2.864 2.864 0 0 1-1.166-1.122c-.279-.484-.418-1.085-.418-1.804 0-.63.117-1.159.352-1.584.25-.425.609-.77 1.078-1.034.47-.264 1.049-.484 1.738-.66.69-.176 1.474-.33 2.354-.462.47-.073.85-.14 1.144-.198.308-.073.535-.183.682-.33.147-.161.22-.389.22-.682 0-.41-.147-.763-.44-1.056-.293-.293-.755-.44-1.386-.44-.425 0-.821.073-1.188.22-.352.147-.66.367-.924.66-.25.293-.433.667-.55 1.122l-2.794-.858a4.982 4.982 0 0 1 .748-1.562c.337-.44.74-.807 1.21-1.1a5.106 5.106 0 0 1 1.606-.682 8.25 8.25 0 0 1 1.958-.22c1.13 0 2.046.183 2.75.55.719.352 1.254.91 1.606 1.672.352.748.528 1.716.528 2.904v1.98c0 .513.007 1.034.022 1.562.03.528.059 1.063.088 1.606L95.623 27H92.83a37.091 37.091 0 0 1-.176-1.254c-.044-.484-.08-.968-.11-1.452h-.396a5.078 5.078 0 0 1-.88 1.518c-.381.455-.85.821-1.408 1.1-.543.264-1.166.396-1.87.396Zm1.342-2.288c.279 0 .557-.051.836-.154.293-.103.572-.242.836-.418.279-.19.528-.425.748-.704.235-.279.425-.594.572-.946l-.044-1.848.506.11c-.264.19-.572.345-.924.462a8.59 8.59 0 0 1-1.1.242c-.367.059-.733.125-1.1.198a5.652 5.652 0 0 0-.99.286 1.8 1.8 0 0 0-.682.484c-.161.19-.242.462-.242.814 0 .455.147.814.44 1.078.293.264.675.396 1.144.396Zm13.111 2.244c-1.29 0-2.244-.337-2.86-1.012-.601-.69-.902-1.782-.902-3.278v-5.038h-1.672l.044-2.486h1.166c.455 0 .792-.066 1.012-.198.22-.132.352-.374.396-.726l.286-1.65h1.804v2.574h2.926v2.574h-2.926v4.818c0 .528.125.91.374 1.144.25.235.631.352 1.144.352.279 0 .543-.03.792-.088a1.91 1.91 0 0 0 .682-.286v2.948a6.552 6.552 0 0 1-1.254.286 8.932 8.932 0 0 1-1.012.066Zm4.454-.264V11.27h3.19v3.608c0 .293-.014.601-.044.924a7.678 7.678 0 0 1-.11.99c-.044.323-.095.653-.154.99-.044.337-.095.675-.154 1.012h.484c.206-.748.462-1.393.77-1.936.323-.543.734-.96 1.232-1.254.499-.308 1.13-.462 1.892-.462 1.35 0 2.362.477 3.036 1.43.675.939 1.012 2.383 1.012 4.334V27h-3.19v-5.61c0-1.232-.183-2.141-.55-2.728-.352-.601-.887-.902-1.606-.902-.586 0-1.07.176-1.452.528-.381.352-.667.829-.858 1.43-.19.587-.3 1.247-.33 1.98V27h-3.168Zm19.247.308c-.953 0-1.804-.132-2.552-.396a5.15 5.15 0 0 1-1.87-1.144 5.028 5.028 0 0 1-1.188-1.848c-.264-.733-.396-1.562-.396-2.486 0-.91.125-1.745.374-2.508a5.73 5.73 0 0 1 1.144-2.002 5.008 5.008 0 0 1 1.826-1.32c.719-.308 1.533-.462 2.442-.462.88 0 1.665.147 2.354.44.69.279 1.262.704 1.716 1.276.47.572.807 1.276 1.012 2.112.22.821.301 1.767.242 2.838l-9.064.088v-1.738l7.238-.066-1.122.88c.103-.777.052-1.415-.154-1.914-.205-.499-.506-.865-.902-1.1a2.383 2.383 0 0 0-1.276-.352c-.557 0-1.048.147-1.474.44-.425.293-.755.726-.99 1.298-.234.557-.352 1.232-.352 2.024 0 1.247.272 2.163.814 2.75.558.587 1.284.88 2.178.88.411 0 .756-.051 1.034-.154.294-.117.528-.264.704-.44.191-.176.338-.374.44-.594.118-.22.213-.44.286-.66l2.75.594a5.262 5.262 0 0 1-.594 1.474c-.249.425-.586.8-1.012 1.122-.425.308-.938.543-1.54.704-.586.176-1.276.264-2.068.264Zm7.415-.308V15.45h2.618l.022 3.938h.418c.118-.983.316-1.782.594-2.398.294-.616.697-1.07 1.21-1.364.514-.293 1.152-.44 1.914-.44.132 0 .272.007.418.022.162 0 .345.022.55.066l-.132 3.366a2.794 2.794 0 0 0-.726-.22 4.33 4.33 0 0 0-.704-.066c-.572 0-1.063.132-1.474.396-.41.264-.748.645-1.012 1.144-.249.484-.418 1.078-.506 1.782V27h-3.19Zm14.764 0V12.48h4.136l6.578 10.274h.242l-.198-10.274h3.08V27h-3.74l-6.952-10.758h-.242L151.424 27h-3.102Zm22.14.308c-1.158 0-2.178-.227-3.058-.682a5.052 5.052 0 0 1-2.068-2.046c-.498-.91-.748-2.039-.748-3.388 0-1.35.25-2.471.748-3.366.514-.895 1.21-1.562 2.09-2.002.895-.455 1.907-.682 3.036-.682 1.159 0 2.178.227 3.058.682a4.845 4.845 0 0 1 2.09 2.046c.514.895.77 2.017.77 3.366 0 1.364-.264 2.5-.792 3.41a4.873 4.873 0 0 1-2.112 2.002c-.88.44-1.884.66-3.014.66Zm.11-2.354c.572 0 1.049-.132 1.43-.396.396-.264.69-.66.88-1.188.206-.543.308-1.195.308-1.958 0-.807-.11-1.489-.33-2.046-.205-.572-.513-1.005-.924-1.298-.41-.308-.931-.462-1.562-.462-.542 0-1.012.132-1.408.396-.396.25-.696.645-.902 1.188-.205.528-.308 1.18-.308 1.958 0 1.247.25 2.193.748 2.838.499.645 1.188.968 2.068.968ZM180.306 27l-2.86-11.55h3.3l1.628 9.042h.418l1.936-9.042h3.806l2.002 9.042h.418l1.584-9.042h3.234L192.89 27h-4.356l-1.804-8.976h-.374L184.64 27h-4.334Z"/></g><defs><clipPath id="a"><path class="[ u-clr-1 ]" fill="#fff" d="M0 0h196.864v40H0z"/></clipPath></defs></svg>
+    </a>
+    
+    <button id="open-nav-btn" class="[ c-pos-relative ][ u-bg-transparent u-focus-outline u-cursor-pointer u-z-index-2 u-display-none-mq ][ b-header-btn ]" type="button" aria-controls="menu-lists" aria-label="open menu" aria-expanded="false">
+      
+      <svg aria-hidden="true" focusable="false" class="[ b-btn-hb-svg ]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" width="24" height="21"><g class="[ u-clr-1 ]" fill="#D0D6F9" fill-rule="evenodd"><path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z"/></g></svg>
+    </button>
+  
+    <nav id="nav-bar" aria-label="header navigation" class="[ c-pos-fixed c-pos-relative-mq ][ u-z-index-2 u-display-none u-display-block-mq ][ b-nav-menu ]"
+      data-visible="false" data-animation="none">
+      
+      <ul id="menu-lists" class="[ c-flex-row-mq c-pos-relative c-col-gap-mq-1 ]">
+        
+        <li class="[ c-pos-absolute ][ u-display-none-mq ][ b-close-menu ]">
+          <button id="close-nav-btn" class="[ u-bg-transparent u-focus-outline u-cursor-pointer ]" type="button" aria-label="close menu" aria-expanded="true">
+            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="21"><g class="[ u-clr-1 ]" fill="#D0D6F9" fill-rule="evenodd"><path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z"/><path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z"/></g></svg>
+          </button>
+        </li>
+        
+        <li>
+          
+          <div role="presentation" class="[ c-pos-relative-mq ]">
+            <button id="theme-btn" class="[ c-flex-row cpos-relative c-justify-con-sb c-align-items-center ][ u-width-1 u-pd-block-1 u-bg-transparent u-focus-outline u-cursor-pointer u-width-mq-1 u-pd-inline-mq-1 u-bg-clr-mq-1 u-border-radius-mq-1 ]" type="button" aria-controls="theme-menu" aria-expanded="false" aria-label="currently active theme day/night" aria-describedby="btn-details">
+              <span id="theme-btn-text" role="presentation">Day/Night</span>
+              <span role="presentation" class="[ u-display-inline-block ][ b-arrow-img ]">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="13" height="8" fill="none" viewBox="0 0 13 8"><path class="[ u-clr-1 ]" fill="#fff" d="M6.309 7.484 1.105 2.316c-.175-.14-.175-.421 0-.597l.704-.668a.405.405 0 0 1 .597 0l4.219 4.148 4.184-4.148c.175-.176.457-.176.597 0l.703.668c.176.176.176.457 0 .597L6.906 7.484a.405.405 0 0 1-.597 0Z"/></svg>
+              </span>
+            </button>
+            <p id="btn-details" class="[ u-display-none ]">toggle theme menu</p>
+            
+            <ul id="theme-menu" class="[ c-flex-col c-row-gap-1 c-pos-absolute-mq ][ u-fs-1 u-mg-block-st-mq-1 u-pd-inline-mq-2 u-pd-block-mq-1 u-bg-clr-mq-1 u-border-mq-1 u-border-radius-mq-1 u-box-shadow-mq-1 ][ b-sub-menu ]" data-visible="false" aria-label="choose a theme">
+              
+              <li>
+                <label class="[ c-flex-row c-pos-relative ][ u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                  Light
+                  <input class="[ c-pos-absolute ][ b-hidden ]" type="radio" name="theme" value="light">
+                </label>
+              </li>
+              
+              <li>
+                <label class="[ c-flex-row c-pos-relative ][ u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                  Dark
+                  <input class="[ c-pos-absolute ][ b-hidden ]" type="radio" name="theme" value="dark">
+                </label>
+              </li>
+              
+              <li>
+                <label class="[ c-flex-row c-justify-con-sb c-align-items-center c-pos-relative ][ u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                  System
+                  <span class="[ c-pos-absolute ][ b-hidden ]">theme based on your device</span>
+                  <input class="[ c-pos-absolute ][ b-hidden ]" type="radio" name="theme" value="system">
+                  
+                  <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path class="[ u-clr-1 ]" fill="#fff" d="M14.125 7.406c.031.407.031.813 0 1.188l1 .594a.74.74 0 0 1 .344.843c-.344 1.313-1.063 2.5-2 3.469-.25.219-.625.281-.906.125l-1-.594c-.25.188-.72.469-1.032.594v1.156a.733.733 0 0 1-.562.719A7.765 7.765 0 0 1 6 15.5c-.313-.063-.563-.406-.563-.719v-1.156a5.54 5.54 0 0 1-1.03-.594l-1 .594c-.282.156-.657.094-.907-.125-.938-.969-1.656-2.156-2-3.469a.74.74 0 0 1 .344-.844l1-.593c-.032-.156-.032-.406-.032-.594 0-.156 0-.406.032-.594l-1-.562A.74.74 0 0 1 .5 6c.344-1.313 1.063-2.5 2-3.469.25-.219.625-.281.906-.125l1 .594c.25-.188.719-.469 1.032-.594V1.25c0-.344.218-.625.562-.719a7.766 7.766 0 0 1 3.969 0c.312.063.562.406.562.719v1.156c.313.125.781.406 1.031.594l1-.594c.282-.156.657-.094.907.125.937.969 1.656 2.156 2 3.469a.74.74 0 0 1-.344.844l-1 .562Zm-1.656 2c.25-1.312.25-1.469 0-2.781l1.375-.781c-.188-.563-.688-1.375-1.063-1.813l-1.375.782c-.969-.844-1.125-.938-2.375-1.375V1.843C8.75 1.812 8.281 1.75 8 1.75c-.313 0-.781.063-1.063.094v1.593c-1.25.438-1.375.532-2.375 1.376L3.188 4.03c-.468.532-.812 1.157-1.062 1.813l1.375.781c-.25 1.313-.25 1.469 0 2.781l-1.375.781c.188.563.688 1.376 1.063 1.813l1.374-.781c.97.844 1.125.937 2.375 1.375v1.594c.282.03.75.093 1.063.093.281 0 .75-.062 1.031-.094v-1.593c1.25-.438 1.375-.531 2.375-1.375l1.375.781c.375-.438.875-1.25 1.063-1.813l-1.375-.78ZM8 5c1.625 0 3 1.375 3 3 0 1.656-1.375 3-3 3a3 3 0 0 1-3-3c0-1.625 1.344-3 3-3Zm0 4.5A1.5 1.5 0 0 0 9.5 8c0-.813-.688-1.5-1.5-1.5A1.5 1.5 0 0 0 6.5 8c0 .844.656 1.5 1.5 1.5Z"/></svg>
+                </label>
+              </li>
+              
+              <li>
+                <label class="[ c-flex-row c-pos-relative ][ u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                  Day/Night
+                  <span class="[ c-pos-absolute ][ b-hidden ]">sets Light theme in day and Dark Theme in night</span>
+                  <input checked class="[ c-pos-absolute ][ b-hidden ]" type="radio" name="theme" value="day/night">
+                </label>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+        <li>
+          <button id="favourite-btn" class="[ c-flex-row c-justify-con-sb c-align-items-center ][ u-width-1 u-pd-block-1 u-bg-transparent u-focus-outline u-cursor-pointer u-width-mq-1 u-pd-inline-mq-1 u-bg-clr-mq-1 u-border-radius-mq-1 ]" type="button" aria-label="favourite places" aria-describedby="fav-details" aria-expanded="false">
+            <span>Favourite</span>
+            <span role="presentation" class="[ u-display-inline-block ][ b-arrow-img ]">
+              <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="13" height="8" fill="none" viewBox="0 0 13 8"><path class="[ u-clr-1 ]" fill="#fff" d="M6.309 7.484 1.105 2.316c-.175-.14-.175-.421 0-.597l.704-.668a.405.405 0 0 1 .597 0l4.219 4.148 4.184-4.148c.175-.176.457-.176.597 0l.703.668c.176.176.176.457 0 .597L6.906 7.484a.405.405 0 0 1-.597 0Z"/></svg>
+            </span>
+          </button>
+          <p id="fav-details" class="[ u-display-none ]">Open favourite places menu</p>
+        </li>
+        
+        <li>
+          <button class="[ u-width-1 u-pd-block-1 u-text-align-left u-bg-transparent u-focus-outline u-cursor-pointer u-width-mq-1 u-pd-inline-mq-1 u-bg-clr-mq-1 u-border-radius-mq-1 ]" type="button" aria-describedby="comp-details">Compare</button>
+          <p id="comp-details" class="[ u-display-none ]">open compare page</p>
+        </li>
+        
+        <li>
+          
+          <div role="presentation" class="[ c-pos-relative-mq ]">
+            <button id="units-btn" class="[ c-flex-row c-justify-con-sb c-align-items-center ][ u-width-1 u-pd-block-1 u-bg-transparent u-focus-outline u-cursor-pointer u-width-mq-1 u-pd-inline-mq-1 u-bg-clr-mq-1 u-border-radius-mq-1 ]" type="button" aria-expanded="false" aria-controls="units-dropdown">
+              <span role="presentation">Units</span>
+              <span role="presentation" class="[ u-display-inline-block ][ b-arrow-img ]">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="13" height="8" fill="none" viewBox="0 0 13 8"><path class="[ u-clr-1 ]" fill="#fff" d="M6.309 7.484 1.105 2.316c-.175-.14-.175-.421 0-.597l.704-.668a.405.405 0 0 1 .597 0l4.219 4.148 4.184-4.148c.175-.176.457-.176.597 0l.703.668c.176.176.176.457 0 .597L6.906 7.484a.405.405 0 0 1-.597 0Z"/></svg>
+              </span>
+              
+            </button>
+            
+            <ul id="units-menu" class="[ c-flex-col c-row-gap-1 c-pos-absolute-mq ][ u-fs-1 u-mg-block-st-mq-1 u-pd-inline-mq-2 u-bg-clr-mq-1 u-border-mq-1 u-border-radius-mq-1 u-box-shadow-mq-1 ][ b-sub-menu b-unit-menu ]" data-visible="false">
+              <li>
+                <button id="unitsOptBtn" type="button" class="[ u-width-1 u-pd-inline-2 u-pd-block-1 u-text-align-left u-bg-transparent u-border-radius-mq-1 u-focus-outline u-cursor-pointer ]" aria-controls="temperature windspeed precipitation">
+                  Switch to 
+                  <span id="units-type">Imperial</span>
+                </button>
+              </li>
+              
+              <li class="[ u-border-bot-1 ]">
+                <fieldset id="temperature" class="[ c-flex-col ]">
+                  <legend class="[ u-mg-block-end-1 u-pd-inline-2 ]">Temperature</legend>
+                  <label class="[ c-flex-row c-justify-con-sb c-align-items-center c-pos-relative ][ u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                    Celsius (°C)
+                    <input class="[ c-pos-absolute ][ b-hidden ]" checked type="radio" name="temperature" value="celsius">
+                    
+                    <svg aria-hidden="true" focusable="false" class="[ u-display-none ]" xmlns="http://www.w3.org/2000/svg" width="14" height="11" fill="none" viewBox="0 0 14 11"><path class="[ u-clr-1 ]" fill="#fff" d="M11.895 1.047c.136-.137.355-.137.464 0l.793.766c.11.136.11.355 0 .464L4.95 10.48a.315.315 0 0 1-.465 0L.82 6.844c-.11-.137-.11-.356 0-.465l.793-.793c.11-.11.328-.11.465 0l2.625 2.652 7.192-7.191Z"/></svg>
+                  </label>
+                  <label class="[ c-flex-row c-justify-con-sb c-align-items-center c-pos-relative ][ u-mg-block-end-1 u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                    Fahrenheit (°F)
+                    <input class="[ c-pos-absolute ][ b-hidden ]" type="radio" name="temperature" value="fahrenheit">
+                    
+                    <svg aria-hidden="true" focusable="false" class="[ u-display-none ]" xmlns="http://www.w3.org/2000/svg" width="14" height="11" fill="none" viewBox="0 0 14 11"><path class="[ u-clr-1 ]" fill="#fff" d="M11.895 1.047c.136-.137.355-.137.464 0l.793.766c.11.136.11.355 0 .464L4.95 10.48a.315.315 0 0 1-.465 0L.82 6.844c-.11-.137-.11-.356 0-.465l.793-.793c.11-.11.328-.11.465 0l2.625 2.652 7.192-7.191Z"/></svg>
+                  </label>
+                </fieldset>
+              </li>
+              
+              <li class="[ u-border-bot-1 ]">
+                <fieldset id="windspeed" class="[ c-flex-col ]">
+                  <legend class="[ u-mg-block-end-1 u-pd-inline-2 ]">Wind Speed</legend>
+                  <label class="[ c-flex-row c-justify-con-sb c-align-items-center c-pos-relative ][ u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                    <abbr class="[ u-text-deco-none ]" title="kilometer per hour">km/h</abbr>
+                    <input class="[ c-pos-absolute ][ b-hidden ]" checked type="radio" name="wind-speed" value="kmh">
+                    
+                    <svg aria-hidden="true" focusable="false" class="[ u-display-none ]" xmlns="http://www.w3.org/2000/svg" width="14" height="11" fill="none" viewBox="0 0 14 11"><path class="[ u-clr-1 ]" fill="#fff" d="M11.895 1.047c.136-.137.355-.137.464 0l.793.766c.11.136.11.355 0 .464L4.95 10.48a.315.315 0 0 1-.465 0L.82 6.844c-.11-.137-.11-.356 0-.465l.793-.793c.11-.11.328-.11.465 0l2.625 2.652 7.192-7.191Z"/></svg>
+                  </label>
+                  <label class="[ c-flex-row c-justify-con-sb c-align-items-center c-pos-relative ][ u-mg-block-end-1 u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                    <abbr class="[ u-text-deco-none ]" title="miles per hour">mph</abbr>
+                    <input class="[ c-pos-absolute ][ b-hidden ]" type="radio" name="wind-speed" value="mph">
+                    
+                    <svg aria-hidden="true" focusable="false" class="[ u-display-none ]" xmlns="http://www.w3.org/2000/svg" width="14" height="11" fill="none" viewBox="0 0 14 11"><path class="[ u-clr-1 ]" fill="#fff" d="M11.895 1.047c.136-.137.355-.137.464 0l.793.766c.11.136.11.355 0 .464L4.95 10.48a.315.315 0 0 1-.465 0L.82 6.844c-.11-.137-.11-.356 0-.465l.793-.793c.11-.11.328-.11.465 0l2.625 2.652 7.192-7.191Z"/></svg>
+                  </label>
+                </fieldset>
+              </li>
+              
+              <li>
+                <fieldset id="precipitation" class="[ c-flex-col ]">
+                  <legend class="[ u-mg-block-end-1 u-pd-inline-2 ]">Precipitation</legend>
+                  <label class="[ c-flex-row c-justify-con-sb c-align-items-center c-pos-relative ][ u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                    Millimeters (mm)
+                    <input class="[ c-pos-absolute ][ b-hidden ]" checked="true" type="radio" name="precipitation" value="mm">
+                    
+                    <svg aria-hidden="true" focusable="false" class="[ u-display-none ]" xmlns="http://www.w3.org/2000/svg" width="14" height="11" fill="none" viewBox="0 0 14 11"><path class="[ u-clr-1 ]" fill="#fff" d="M11.895 1.047c.136-.137.355-.137.464 0l.793.766c.11.136.11.355 0 .464L4.95 10.48a.315.315 0 0 1-.465 0L.82 6.844c-.11-.137-.11-.356 0-.465l.793-.793c.11-.11.328-.11.465 0l2.625 2.652 7.192-7.191Z"/></svg>
+                  </label>
+                  <label class="[ c-flex-row c-justify-con-sb c-align-items-center c-pos-relative ][ u-mg-block-end-1 u-pd-inline-2 u-pd-block-2 u-focus-outline u-cursor-pointer ]">
+                    Inches (in)
+                    <input class="[ c-pos-absolute ][ b-hidden ]" type="radio" name="precipitation" value="inch">
+                    
+                    <svg aria-hidden="true" focusable="false" class="[ u-display-none ]" xmlns="http://www.w3.org/2000/svg" width="14" height="11" fill="none" viewBox="0 0 14 11"><path class="[ u-clr-1 ]" fill="#fff" d="M11.895 1.047c.136-.137.355-.137.464 0l.793.766c.11.136.11.355 0 .464L4.95 10.48a.315.315 0 0 1-.465 0L.82 6.844c-.11-.137-.11-.356 0-.465l.793-.793c.11-.11.328-.11.465 0l2.625 2.652 7.192-7.191Z"/></svg>
+                  </label>
+                </fieldset>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <main class="[ c-flex-col c-pos-relative c-gap-1 ][ u-width-2 ]">
+    
+    <article id="page-headline" class="[ c-flex-col c-justify-con-center c-align-items-center c-row-gap-2 ][ b-weather-main-head ]" data-visible="true">
+      <h1>How's the sky looking today?</h1>
+      
+      <div role="search" class="[ u-width-3 ]">
+        <form method="get" aria-label="Search for a city, example- New York"
+        class="[ c-flex-col c-row-gap-3 c-flex-row-mq c-col-gap-mq-2 ][ u-width-3 ]">
+          
+          <div role="presentation" class="[ c-pos-relative ][ u-width-1 ]">
+            
+            <label class="[ c-flex-row c-align-items-center c-col-gap-1 ][ u-width-1 u-pd-inline-3 u-pd-block-1 u-bg-clr-1 u-border-radius-1 u-focus-outline u-cursor-pointer ]" aria-label="Search for a Place">
+              <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="none" viewBox="0 0 21 21"><path class="[ u-clr-2 ]" fill="#D4D3D9" d="M19.844 18.82c.195.196.195.508 0 .664l-.899.899c-.156.195-.468.195-.664 0l-4.726-4.727a.63.63 0 0 1-.117-.351v-.508c-1.446 1.21-3.282 1.953-5.313 1.953A8.119 8.119 0 0 1 0 8.625C0 4.172 3.633.5 8.125.5c4.453 0 8.125 3.672 8.125 8.125 0 2.031-.781 3.906-1.992 5.313h.508c.117 0 .234.078.351.156l4.727 4.726ZM8.125 14.875a6.243 6.243 0 0 0 6.25-6.25c0-3.438-2.813-6.25-6.25-6.25a6.243 6.243 0 0 0-6.25 6.25 6.219 6.219 0 0 0 6.25 6.25Z"/></svg>
+              
+              <input id="search-input" class="[ u-fs-2 u-fw-1 u-clr-3 u-bg-transparent ]" type="text" placeholder="Search for a place..." aria-invalid="false" aria-errormessage="no-result">
+            </label>
+            
+            <p id="no-result" class="[ c-pos-absolute ][ u-width-1 u-mg-block-st-1 u-pd-block-1 u-fs-6 u-fw-2 u-text-align-center u-bg-clr-1 u-border-radius-1 u-z-index-2 ][ b-no-result ]" data-visible="false" aria-live="polite">No search result found!</p>
+            
+            <ul id="search-suggestion" class="[ c-flex-col c-pos-absolute ][ u-width-1 u-max-height u-mg-block-st-1 u-pd-inline-1 u-pd-block-2 u-fs-1 u-clr-3 u-bg-clr-1 u-border-radius-1 u-overflow-auto u-z-index-2 ][ b-search-suggestion ]" aria-label="recently searched places" data-visible="false" aria-live="polite">
+            </ul>
+            
+          </div>
+          
+          <button id="search-locate" class="[ u-pd-block-1 u-fs-2 u-fw-1 u-clr-white u-bg-clr-2 u-border-radius-1 u-focus-outline u-cursor-pointer u-width-mq-2 u-pd-inline-mq-3 ]" type="button" aria-label="weather information based on my current location">My Location</button>
+          
+        </form>
+        
+      </div>
+    </article>
+    
+    <article id="weather-summery" class="[ c-flex-col c-align-items-center c-gap-1 c-grid-layout-mq ][ u-width-1 ][ b-weather-page ]" data-visible="true">
+      <div role="presentation" class="[ c-flex-coll c-align-items-centerr c-grid-area-a ][ u-width-3 ]">
+        
+        <div id="div-bg-clr" role="presentation" class="[ c-pos-relative ][ u-bg-clr-1 u-border-radius-2 ][ b-display-toggle b-skeleton ]" data-bgcolor="original">
+          
+          <div id="cur-div" role="presentation" class="[ c-flex-col c-justify-con-center c-align-items-center c-pos-absolute c-flex-row-mq c-justify-con-sb-mq ][ u-width-1 u-height-1 u-pd-inline-1 u-z-index-1 ][ b-display-toggle ]" data-visible="false">
+            
+            <header class="[ c-flex-col c-row-gap-1 ]">
+              <h2 class="[ u-text-align-center u-text-align-left-mq ]">
+                <span class="[ c-pos-absolute ][ b-hidden ]">place</span>
+                <span id="current-place"></span>
+              </h2>
+              
+              <time id="current-date" class="[ u-fw-2 u-clr-white u-text-align-center u-text-align-left-mq ]" datetime="2025-07-05">
+                <span id="current-week"></span>, 
+                <abbr id="current-month" class="[ u-text-deco-none ]" title="august"></abbr>
+                <span id="current-date_year"></span>
+              </time>
+            </header>
+            
+            <div role="presentation" class="[ c-flex-row c-align-items-center c-col-gap-1 ]">
+              <span role="presentation" id="current-weather-img" class="[ u-clr-white ]"></span>
+              <p>
+                <span role="presentation" id="current-temp" class="[ u-fs-3 u-fw-1 u-font-style-italic u-clr-5 ]"></span>
+                <span role="presentation" class="[ u-fs-3 u-fw-2 u-font-style-italic u-clr-5 ]">&deg</span>
+                <abbr id="current-temp-unit" class="[ u-fs-4 u-fw-1 u-font-style-italic u-text-deco-none u-clr-5 ]" title="Celsius"></abbr>
+              </p>
+            </div>
+            
+            <button id="addToFav-btn" class="[ c-pos-absolute ][ u-mg-inline-end-1 u-bg-transparent u-focus-outline u-cursor-pointer ][ b-fav-btn ]" type="button" aria-label="add to favourite" data-favourite="false">
+                <svg class="[ b-fav-svg ]" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path class="[ b-fav-svg-opacity ]" fill="#eaf700" fill-opacity="0" d="M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28l-5.29 3.28l1.49 -6.04l-4.76 -4.02l6.21 -0.46Z"/><path fill="none" stroke="#eaf700" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28"/></svg>
+            </button>
+            
+          </div>
+          
+          <picture id="cur-img" class="[ b-display-toggle ]" data-hidden="true">
+            <source srcset="./assets/images/bg-today-large.svg" media="(min-width: 40rem)" />
+            <img class="[ u-width-1 ]" src="./assets/images/bg-today-small.svg" alt="" />
+          </picture>
+        </div>
+        
+        <div id="weather-info" role="presentation" class="[ c-grid c-gap-2 ][ u-mg-block-st-2 ][ b-weather-info ]">
+          <section class="[ c-flex-col c-justify-con-sb c-row-gap-4 ][ u-height-6 u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 ][ b-skeleton ]" data-animation="none" >
+            <h3 class="[ u-fs-2 u-fw-2 u-clr-6 ]">Feels like</h3>
+            <p  class="[ u-fs-5 u-fw-3 ]">
+              <span role="presentation" id="feels-like">-</span>
+              <abbr id=feels-like-unit class="[ u-text-deco-none ]" title="Celsius"></abbr></p>
+          </section>
+          
+          <section class="[ c-flex-col c-justify-con-sb c-row-gap-4 ][ u-height-6 u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 ][ b-skeleton ]">
+            <h3 class="[ u-fs-2 u-fw-2 u-clr-6 ]">Humidity</h3>
+            <p id="humidity" class="[ u-fs-5 u-fw-3 ]">-</p>
+          </section>
+          
+          <section class="[ c-flex-col c-justify-con-sb c-row-gap-4 ][ u-height-6 u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 ][ b-skeleton ]">
+            <h3 class="[ u-fs-2 u-fw-2 u-clr-6 ]">Wind</h3>
+            <p  class="[ u-fs-5 u-fw-3 ]">
+              <span role="presentation" id="wind">-</span> 
+              <abbr id="wind-unit" class="[ u-text-deco-none ]" title="kilometers per hour"></abbr>
+            </p>
+          </section>
+          
+          <section class="[ c-flex-col c-justify-con-sb c-row-gap-4 ][ u-height-6 u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 ][ b-skeleton ]">
+            <h3 class="[ u-fs-2 u-fw-2 u-clr-6 ]">Precipitation</h3>
+            <p class="[ u-fs-5 u-fw-3 ]">
+              <span role="presentation" id="precip">-</span>
+              <abbr id="precip-unit" class="[ u-text-deco-none ]" title="millimeters"></abbr>
+            </p>
+          </section>
+          
+        </div>
+        
+      </div>
+    
+      <section class="[ c-grid-area-b ][ u-width-3 ]">
+        <h3>Daily forecast</h3>
+        <ul id="daily-forcast-ul" class="[ c-grid c-gap-2 ][ u-mg-block-st-2 ][ b-daily-forcast-layout ]">
+          <li class="[ c-flex-col c-justify-con-sb c-align-items-center ][ u-height-3 u-pd-inline-4 u-pd-block-1 u-bg-clr-1 u-border-radius-1  ][ b-skeleton ]"></li>
+          <li class="[ c-flex-col c-justify-con-sb c-align-items-center ][ u-height-3 u-pd-inline-4 u-pd-block-1 u-bg-clr-1 u-border-radius-1  ][ b-skeleton ]"></li>
+          <li class="[ c-flex-col c-justify-con-sb c-align-items-center ][ u-height-3 u-pd-inline-4 u-pd-block-1 u-bg-clr-1 u-border-radius-1  ][ b-skeleton ]"></li>
+          <li class="[ c-flex-col c-justify-con-sb c-align-items-center ][ u-height-3 u-pd-inline-4 u-pd-block-1 u-bg-clr-1 u-border-radius-1  ][ b-skeleton ]"></li>
+          <li class="[ c-flex-col c-justify-con-sb c-align-items-center ][ u-height-3 u-pd-inline-4 u-pd-block-1 u-bg-clr-1 u-border-radius-1  ][ b-skeleton ]"></li>
+          <li class="[ c-flex-col c-justify-con-sb c-align-items-center ][ u-height-3 u-pd-inline-4 u-pd-block-1 u-bg-clr-1 u-border-radius-1  ][ b-skeleton ]"></li>
+          <li class="[ c-flex-col c-justify-con-sb c-align-items-center ][ u-height-3 u-pd-inline-4 u-pd-block-1 u-bg-clr-1 u-border-radius-1  ][ b-skeleton ]"></li>    
+          
+        </ul>
+      </section>
+      
+      <section class="[ c-grid-area-c ][ u-width-3 u-height-1 u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 ]">
+        <header class="[ c-flex-row c-justify-con-sb c-align-items-center ]">
+          <h3>Hourly forecast</h3>
+          
+          <div role="presentation" class="[ c-pos-relative ]">
+            <button id="hourly-forecast-btn" class="[ c-flex-row c-align-items-center c-col-gap-1 ][ u-pd-inline-1 u-pd-block-3 u-bg-clr-3 u-border-radius-1 u-focus-outline u-cursor-pointer ]" type="button" aria-expanded="false" aria-controls="forecast-menu">
+              <span id="hourly-btn-text" role="presentation">-</span>
+              <span role="presentation" class="[ b-arrow-img ]">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="13" height="8" fill="none" viewBox="0 0 13 8"><path class="[ u-clr-1 ]" fill="#fff" d="M6.309 7.484 1.105 2.316c-.175-.14-.175-.421 0-.597l.704-.668a.405.405 0 0 1 .597 0l4.219 4.148 4.184-4.148c.175-.176.457-.176.597 0l.703.668c.176.176.176.457 0 .597L6.906 7.484a.405.405 0 0 1-.597 0Z"/></svg>
+              </span>
+              
+            </button>
+            
+            
+            <fieldset class="[ c-flex-col c-pos-absolute c-row-gap-4 ][ u-mg-block-st-1 u-pd-inline-2 u-pd-block-1 u-bg-clr-1 u-border-1 u-border-radius-1 u-box-shadow-1 u-z-index-2 ][ b-hourly-menu ]" id="hourly-forecast-menu" aria-label="choose a day" data-visible="false">
+              
+              
+            </fieldset>
+            
+          </div>
+          
+        </header>
+  
+        
+        <ul id="hourly-forecast-info" class="[ c-flex-col c-row-gap-4 ][ u-width-1 u-height-5 u-mg-block-st-2 u-overflow-auto u-scrollbar-gutter-stable ]">
+          <li class="[ c-flex-row c-flex-shrink-0 c-justify-con-sb c-align-items-center  ][ u-height-2 u-pd-inline-st-1 u-pd-inline-end-1 u-bg-clr-4 u-border-radius-1 ]">
+          </li>
+          
+          <li class="[ c-flex-row c-flex-shrink-0 c-justify-con-sb c-align-items-center  ][ u-height-2 u-pd-inline-st-1 u-pd-inline-end-1 u-bg-clr-4 u-border-radius-1 ]">
+          </li>
+          
+          <li class="[ c-flex-row c-flex-shrink-0 c-justify-con-sb c-align-items-center  ][ u-height-2 u-pd-inline-st-1 u-pd-inline-end-1 u-bg-clr-4 u-border-radius-1 ]">
+          </li>
+          
+          <li class="[ c-flex-row c-flex-shrink-0 c-justify-con-sb c-align-items-center  ][ u-height-2 u-pd-inline-st-1 u-pd-inline-end-1 u-bg-clr-4 u-border-radius-1 ]">
+          </li>
+          
+          <li class="[ c-flex-row c-flex-shrink-0 c-justify-con-sb c-align-items-center  ][ u-height-2 u-pd-inline-st-1 u-pd-inline-end-1 u-bg-clr-4 u-border-radius-1 ]">
+          </li>
+          
+          <li class="[ c-flex-row c-flex-shrink-0 c-justify-con-sb c-align-items-center  ][ u-height-2 u-pd-inline-st-1 u-pd-inline-end-1 u-bg-clr-4 u-border-radius-1 ]">
+          </li>
+          
+          <li class="[ c-flex-row c-flex-shrink-0 c-justify-con-sb c-align-items-center  ][ u-height-2 u-pd-inline-st-1 u-pd-inline-end-1 u-bg-clr-4 u-border-radius-1 ]">
+          </li>
+          
+          <li class="[ c-flex-row c-flex-shrink-0 c-justify-con-sb c-align-items-center  ][ u-height-2 u-pd-inline-st-1 u-pd-inline-end-1 u-bg-clr-4 u-border-radius-1 ]">
+          </li>
+          
+        </ul>
+      </section>
+      
+    </article>
+    
+    <article id="api-error-window" class="[ c-flex-col c-align-items-center c-gap-1 ][ b-weather-failed ]" data-visible="false">
+      <div role="presentation">
+        <svg role="img" aria-label="error" class="[ b-error-img ]" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 18 18"><path fill="#ACACB7" d="M9 .531c4.781 0 8.719 3.938 8.719 8.719 0 4.816-3.938 8.719-8.719 8.719A8.717 8.717 0 0 1 .281 9.25C.281 4.469 4.184.531 9 .531Zm4.957 3.762c-2.566-2.566-6.574-2.707-9.316-.563l9.879 9.88c2.144-2.743 2.003-6.75-.563-9.317Zm-9.95 9.95c2.567 2.566 6.575 2.706 9.317.562l-9.879-9.88c-2.144 2.743-2.004 6.75.563 9.317Z"/></svg>
+      </div>
+      
+      <h1>Something went wrong</h2>
+      <p class="[ u-width-6 u-fs-6 u-fw-2 u-text-align-center u-clr-4 ]">We couldn't connect to the server (API error). Please try again in a few moments.</p>
+      <button id="api-retry-btn" class="[ c-flex-row c-align-items-center c-justify-con-center c-col-gap-3 ][ u-pd-inline-1 u-pd-block-4 u-bg-clr-1 u-border-radius-1 ]" type="button" aria-label="try again">
+        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="17" fill="none" viewBox="0 0 16 17"><path fill="#fff" d="M15.094 1.406c.25-.25.656-.062.656.25v4.469a.38.38 0 0 1-.375.375h-4.5a.36.36 0 0 1-.25-.625l1.688-1.688A5.992 5.992 0 0 0 8 2.375a6.134 6.134 0 0 0-6.125 5.781c-.031.219-.188.344-.375.344H.625c-.219 0-.406-.156-.375-.375C.438 4.031 3.844.75 8 .75c2.125 0 4.063.875 5.469 2.281l1.625-1.625Zm.25 7.094c.219 0 .406.188.375.406C15.53 13 12.125 16.25 8 16.25c-2.156 0-4.094-.844-5.5-2.25L.875 15.625a.36.36 0 0 1-.625-.25v-4.5a.38.38 0 0 1 .375-.375h4.469c.312 0 .5.406.25.656l-1.688 1.688C4.75 13.969 6.281 14.625 8 14.625a6.1 6.1 0 0 0 6.094-5.75c.031-.219.187-.375.375-.375h.875Z"/></svg>
+        <span class="[ u-fw-2 ]">Retry</span>
+      </button>
+    </article>
+    
+    <article id="favourite-menu" class="[ c-flex-col c-row-gap-1 c-pos-fixed c-pos-center ][ u-width-7 u-height-4 u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-1 u-border-radius-1 u-z-index-2 ][ b-favourite-page ]" data-visible="false">
+      
+      <header class="[ c-flex-row c-justify-con-sb c-align-items-center ][ u-width-1 ]">
+        <h3>Your Favourite Places</h3>
+        <button id="close-fav" class="[ u-bg-transparent u-focus-outline u-cursor-pointer ]" type="button" aria-label="close favourite menu" aria-expanded="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"><g class="[ u-clr-1 ]" fill="#D0D6F9" fill-rule="evenodd"><path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z"/><path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z"/></g></svg>
+        </button>
+      </header>
+      
+      <div role="search" class="[ u-bg-clr-3 u-border-radius-1 u-pd-inline-1 u-pd-block-3 u-focus-outline u-cursor-pointer  ]">
+        <label class="[ c-flex-row c-align-items-center c-col-gap-2 ]" aria-label="search your favourite places by name">
+          <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="none" viewBox="0 0 21 21"><path class="[ u-clr-2 ]" fill="#D4D3D9" d="M19.844 18.82c.195.196.195.508 0 .664l-.899.899c-.156.195-.468.195-.664 0l-4.726-4.727a.63.63 0 0 1-.117-.351v-.508c-1.446 1.21-3.282 1.953-5.313 1.953A8.119 8.119 0 0 1 0 8.625C0 4.172 3.633.5 8.125.5c4.453 0 8.125 3.672 8.125 8.125 0 2.031-.781 3.906-1.992 5.313h.508c.117 0 .234.078.351.156l4.727 4.726ZM8.125 14.875a6.243 6.243 0 0 0 6.25-6.25c0-3.438-2.813-6.25-6.25-6.25a6.243 6.243 0 0 0-6.25 6.25 6.219 6.219 0 0 0 6.25 6.25Z"/></svg>
+          <input id="fav-searchbar" class="[ u-width-1 u-fs-2 u-clr-3 u-bg-transparent ]" type="text" placeholder="search by name" aria-invalid="false" aria-errormessage="fav-list-error">
+        </label>
+      </div>
+      
+      <div role="presentation" class="[ c-flex-col c-justify-con-center c-align-items-center ][ u-width-1 u-height-1 u-overflow-hidden ]">
+        <p id="fav-list-error" class="[ u-clr-4 ][ b-fav-error ]" data-visible="false" aria-live="polite">Empty</p>
+        
+        <ul id="fav-list" class="[ u-width-1 u-height-1 u-bg-clr-4 u-border-radius-1 u-overflow-auto ][ b-fav-ul ]" aria-live="polite" data-visible="true">
+          <li class="[ c-flex-row ]">
+            <button class="[ u-width-1 u-pd-inline-1 u-pd-block-1 u-bg-transparent u-text-align-left ]" type="button">
+              New York, USA
+            </button>
+            <button class="[ u-pd-inline-1 u-pd-block-1 u-bg-transparent u-text-align-left u-opacity-0 ]" type="button" aria-label="remove New York, USA">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 20 21"><g class="[ u-clr-2 ]" fill="#D0D6F9" fill-rule="evenodd"><path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z"/><path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z"/></g></svg>
+            </button>
+          </li>
+          <li class="[ c-flex-row ]">
+            <button class="[ u-width-1 u-pd-inline-1 u-pd-block-3 u-bg-transparent u-text-align-left ]" type="button">
+              Tokyo, Japan
+            </button>
+            <button class="[ u-pd-inline-1 u-pd-block-1 u-bg-transparent u-text-align-left u-opacity-0 ]" type="button" aria-label="remove New York, USA">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 20 21"><g class="[ u-clr-2 ]" fill="#D0D6F9" fill-rule="evenodd"><path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z"/><path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z"/></g></svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+      
+    </article>
+    
+    <article class="[ u-flex-col ][ b-comparison-page ]" data-visible="false">
+      <h2 class="[ u-text-align-center ]">Compare weather</h2>
+      
+      <div role="presentation">
+        <article class="[ u-bg-clr-1 u-border-radius-1 u-border-1 ]">
+          <header>
+            <fieldset aria-label="select a place from">
+              
+              <label>
+                <span>Favourite</span>
+                <input type="radio" name="compare" value="favourite"/>
+              </label>
+              
+              <label>
+                <span>Recent</span>
+                <input checked type="radio" name="compare" value="recent"/>
+              </label>
+              
+              <label>
+                <span>Search</span>
+                <input type="radio" name="compare" value="search"/>
+              </label>
+              
+            </fieldset>
+          </header>
+          
+          <div role="presentation">
+            
+            <fieldset>
+              
+            </fieldset>
+            
+            <div role="search" class="[ b-search-compare ]" data-visible="false">
+              <label aria-label="search for a place">
+                <input type="text" placeholder="search for a place">
+              </label>
+            </div>
+            
+          </div>
+          
+          
+        </article>
+      </div>
+      
+    </article>
+    
+    <div role="presentation" class="[ c-grid c-pos-absolute ][ b-weather-info-hidden ][ u-display-none ]">
+      
+      <section class="[ c-flex-col c-row-gap-4 ][ u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 ]">
+        <h3 class="[ u-fs-2 u-fw-2 u-clr-6 ]">
+          <abbr class="[ u-text-deco-none ]" title="ultraviolet">UV</abbr> Index
+        </h3>
+        <p id="uv-index" class="[ u-fs-5 u-fw-3 ]">4</p>
+      </section>
+      
+      <section class="[ c-flex-col c-row-gap-4 ][ u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 ]">
+        <h3 class="[ u-fs-2 u-fw-2 u-clr-6 ]">Visibility</h3>
+        <p class="[ u-fs-5 u-fw-3 ]">
+          <span id="visibility">10</span>
+          <abbr class="[ u-text-deco-none ]" title="foot"> ft</abbr>
+        </p>
+      </section>
+      
+      <section class="[ c-flex-col c-row-gap-4 ][ u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 ]">
+        <h3 class="[ u-fs-2 u-fw-2 u-clr-6 ]">Pressure</h3>
+        <p class="[ u-fs-5 u-fw-3 ]">
+          <span id="surface-pressure">1000</span>
+          <abbr title="hectopascal"> hPa</abbr>
+        </p>
+      </section>
+      
+      <section class="[ c-flex-col c-row-gap-4 ][ u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 ]">
+        <h3 class="[ u-fs-2 u-fw-2 u-clr-6 ]">Dew Point</h3>
+        <p class="[ u-fs-5 u-fw-3 ]">
+          <span id="dew-point">25</span>&deg
+          <abbr id="dew-point-unit" title="celsius">C</abbr>
+        </p>
+      </section>
+      
+    </div>
+    
+    <div id="notify" class="[ c-flex-row c-pos-fixed c-justify-con-sb c-align-items-center ][ u-width-5 u-pd-inline-1 u-pd-block-1 u-bg-clr-1 u-border-radius-1 u-z-index-1 u-overflow-hidden ][ b-notify b-display-toggle ]" aria-live="polite" data-animation1="none"  data-animation2="none" data-visible="false">
+      <p id="notify-text"></p>
+      <button id="notify-close-btn" aria-label="close alert notification" class="[ u-bg-transparent ]">
+        <svg class="[ b-close-notify-svg ]" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"><g class="[ u-clr-1 ]" fill="#D0D6F9" fill-rule="evenodd"><path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z"/><path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z"/></g></svg>
+      </button>
+    </div>
+    
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">ROKUROO7</a>.
+  </footer>
+</body>
+</html>
