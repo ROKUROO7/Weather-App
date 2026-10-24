@@ -236,6 +236,11 @@ async function getUserLocation() {
     const longitude = position.coords.longitude
     
     const getLocationData = await fetch(reverseGeoLocationUrl(latitude, longitude))
+
+    if(!getLocationData.ok) {
+      throw new Error (`HTTP Error ${getLocationData.status}`)
+    }
+
     const data = await getLocationData.json()
     
     const countryCode = data.countryCode.toLowerCase()
@@ -783,6 +788,11 @@ async function fetchForcast(btnValue, tempUnit, windUnit, precipUnit ) {
     loadingAnimation()
     
     const getForcast = await fetch(forcastUrl(latitude, longitude, tempUnit, windUnit, precipUnit))
+
+    if(!getForcast.ok) {
+      throw new Error (`HTTP Error ${getForcast.status}`)
+    }
+
     const forcastJson = await getForcast.json()
     
     // unit
